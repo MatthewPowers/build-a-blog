@@ -65,7 +65,8 @@ def add_blog():
             new_blog = Blog(name, storys)
             db.session.add(new_blog)
             db.session.commit()
-            return render_template('blog-temo.html')
+            new_blog_id = new_blog.id
+            return redirect('/blog-temo?blog_id={0}'.format(new_blog_id))
 
     return render_template('add-blog.html')
 
@@ -73,12 +74,12 @@ def add_blog():
 @app.route('/blog-temo')
 def blog_temo():
 
-    #blog_id = int(request.form['blog-id'])
-    #blog = Blog.query.get(blog_id)
+    blog_id = request.args.get('blog_id')
+    blog = Blog.query.get(blog_id)
     #db.session.add(blog)
     #db.session.commit()
 
-    return render_template('blog-temo.html')
+    return render_template('blog-temo.html', blog=blog)
 
 if __name__ == '__main__':
     app.run()

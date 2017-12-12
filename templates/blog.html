@@ -13,13 +13,13 @@
     <ul>
         {% for blog in blogs %}
        
-            <li><h2><a href="/blog-temo">{{blog.title}}</a></h2></li>
+            <li><h2><a href="/blog-temo?blog_id={{blog.id}}">{{blog.title}}</a></h2></li>
             <p>{{blog.story}}</p>
 
-           <!-- <form method="POST" action="/blog-temo">
+            <form method="POST" action="/blog-temo">
                 <input type="hidden" name="blog-id" value="{{blog.id}}"/>
-                <input type="submit" value="view"/>
-            </form> -->
+                <!--<input type="submit" value="view"/>-->
+            </form>
         
         {% endfor %}
     </ul>
