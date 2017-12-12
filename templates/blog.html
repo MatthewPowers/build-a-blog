@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Write a Blog</h1>
+
+<!-- add linkes between main blog page and add blog page -->
+
+
+{% if blogs|length == 0 %}
+<p>No Blogs Yet</p>
+{% else %}
+    <ul>
+        {% for blog in blogs %}
+       
+            <li><h2><a href="/blog-temo">{{blog.title}}</a></h2></li>
+            <p>{{blog.story}}</p>
+
+           <!-- <form method="POST" action="/blog-temo">
+                <input type="hidden" name="blog-id" value="{{blog.id}}"/>
+                <input type="submit" value="view"/>
+            </form> -->
+        
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+{% endblock %}
